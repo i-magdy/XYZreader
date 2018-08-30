@@ -13,9 +13,12 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.ShareCompat;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
@@ -56,6 +59,9 @@ public class    ArticleDetailFragment extends Fragment implements
     private int mScrollY;
     private boolean mIsCard = false;
     private int mStatusBarFullOpacityBottom;
+    private boolean appbarCollapsed;
+    private String titleText;
+
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss");
     // Use default locale format
@@ -120,7 +126,7 @@ public class    ArticleDetailFragment extends Fragment implements
             }
         });
 */
-        mScrollView = (ObservableScrollView) mRootView.findViewById(R.id.scrollview);
+     /*   mScrollView = (ObservableScrollView) mRootView.findViewById(R.id.scrollview);
         mScrollView.setCallbacks(new ObservableScrollView.Callbacks() {
             @Override
             public void onScrollChanged() {
@@ -130,9 +136,31 @@ public class    ArticleDetailFragment extends Fragment implements
                 //updateStatusBar();
             }
         });
+*/
 
+       Toolbar toolbar = mRootView.findViewById(R.id.detail_toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivityCast().onSupportNavigateUp();
+            }
+        });
+
+        final CollapsingToolbarLayout mCollapsingToolbar = mRootView.findViewById(R.id.collapsing_toolbar);
+        final AppBarLayout appbar = mRootView.findViewById(R.id.appbar);
+        appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                boolean old = appbarCollapsed;
+                appbarCollapsed = Math.abs(verticalOffset) == appbar.getTotalScrollRange();
+                if (old != appbarCollapsed) {
+                    mCollapsingToolbar.setTitle(appbarCollapsed ? titleText : "");
+                }
+            }
+        });
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
-        mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
+       // mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
@@ -209,7 +237,8 @@ public class    ArticleDetailFragment extends Fragment implements
             //mRootView.setAlpha(0);
             mRootView.setVisibility(View.VISIBLE);
             //mRootView.animate().alpha(1);
-            titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            titleText =mCursor.getString(ArticleLoader.Query.TITLE);
+            titleView.setText(titleText);
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
                 bylineView.setText(Html.fromHtml(
@@ -232,7 +261,6 @@ public class    ArticleDetailFragment extends Fragment implements
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
             Picasso.get()
                     .load( mCursor.getString(ArticleLoader.Query.THUMB_URL))
-                    .fit()
                     .into(imageView);
 
            /* ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
@@ -293,14 +321,14 @@ public class    ArticleDetailFragment extends Fragment implements
         bindViews();
     }
 
-    public int getUpButtonFloor() {
+   public int getUpButtonFloor() {
         if (mPhotoContainerView == null || mPhotoView.getHeight() == 0) {
             return Integer.MAX_VALUE;
         }
 
         // account for parallax
-        return mIsCard
-                ? (int) mPhotoContainerView.getTranslationY() + mPhotoView.getHeight() - mScrollY
-                : mPhotoView.getHeight() - mScrollY;
+       return mIsCard
+               ? (int) mPhotoContainerView.getTranslationY() + mPhotoView.getHeight() //- mScrollY
+                : mPhotoView.getHeight(); //- mScrollY;
     }
 }

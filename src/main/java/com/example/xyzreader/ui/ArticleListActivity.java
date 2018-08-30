@@ -104,9 +104,10 @@ public class ArticleListActivity extends AppCompatActivity implements
                 mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
                 if (!mIsRefreshing && adapter != null) {
                 Snackbar.make(mRecyclerView, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();}
+                        .setAction("Action", null).show();
+                    mIsRefreshing = false;
+                }
                 updateRefreshingUI();
-                mIsRefreshing = false;
             }
         }
     };
@@ -205,7 +206,6 @@ public class ArticleListActivity extends AppCompatActivity implements
             holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));*/
             Picasso.get()
                     .load( mCursor.getString(ArticleLoader.Query.THUMB_URL))
-                    .fit()
                     .into(holder.thumbnailView);
         }
 
