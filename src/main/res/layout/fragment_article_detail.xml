@@ -55,6 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/detail_layout_margin"
+            android:background="#fff"
             android:elevation="@dimen/detail_elevation"
             android:maxWidth="@dimen/detail_card_max_width"
             android:orientation="vertical"
