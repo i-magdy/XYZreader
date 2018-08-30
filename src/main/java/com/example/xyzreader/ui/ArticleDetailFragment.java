@@ -163,7 +163,7 @@ public class    ArticleDetailFragment extends Fragment implements
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
        // mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
 
-        mStatusBarColorDrawable = new ColorDrawable(0);
+        //mStatusBarColorDrawable = new ColorDrawable(0);
 
         mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -260,8 +260,8 @@ public class    ArticleDetailFragment extends Fragment implements
 
             }
             String text = mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />");
-            String shortText = text.substring(0,700);
-            bodyView.setText(Html.fromHtml(shortText));
+           // String shortText = text.substring(0,700);
+            bodyView.setText(Html.fromHtml(text));
             Picasso.get()
                     .load( mCursor.getString(ArticleLoader.Query.THUMB_URL))
                     .into(imageView);

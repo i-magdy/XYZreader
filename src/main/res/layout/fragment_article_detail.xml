@@ -47,19 +47,18 @@
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        app:behavior_overlapTop="@dimen/detail_overlap">
 
 
         <com.example.xyzreader.ui.MaxWidthLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/detail_appbar_height"
-            android:background="#fff"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/detail_layout_margin"
             android:elevation="@dimen/detail_elevation"
             android:maxWidth="@dimen/detail_card_max_width"
             android:orientation="vertical"
-            android:outlineProvider="bounds"
-            >
+            android:outlineProvider="bounds">
 
             <LinearLayout
                 android:id="@+id/meta_bar"
@@ -67,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="@dimen/detail_metabar_vert_padding"
-                android:background="#333"
+                android:background="#B0BEC5"
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/detail_metabar_vert_padding"
                 android:paddingLeft="@dimen/detail_inner_horiz_margin"
@@ -117,8 +116,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:elevation="4dp"
-        android:src="?attr/actionModeShareDrawable"
-        app:backgroundTint="@color/theme_accent" />
+        android:src="?attr/actionModeShareDrawable" />
 
 
 </android.support.design.widget.CoordinatorLayout>
