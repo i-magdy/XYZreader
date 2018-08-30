@@ -1,4 +1,4 @@
-#Thu Aug 30 02:21:50 EET 2018
+#Thu Aug 30 11:46:31 EET 2018
 base.0=C\:\\Users\\DELL\\AndroidStudioProjects\\xyz-reader-starter-code-master\\XYZReader\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
