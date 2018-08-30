@@ -155,7 +155,8 @@ public class    ArticleDetailFragment extends Fragment implements
                 boolean old = appbarCollapsed;
                 appbarCollapsed = Math.abs(verticalOffset) == appbar.getTotalScrollRange();
                 if (old != appbarCollapsed) {
-                    mCollapsingToolbar.setTitle(appbarCollapsed ? titleText : "");
+                    mCollapsingToolbar
+                            .setTitle(appbarCollapsed ? titleText : "");
                 }
             }
         });
@@ -258,7 +259,9 @@ public class    ArticleDetailFragment extends Fragment implements
                                 + "</font>"));
 
             }
-            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
+            String text = mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />");
+            String shortText = text.substring(0,700);
+            bodyView.setText(Html.fromHtml(shortText));
             Picasso.get()
                     .load( mCursor.getString(ArticleLoader.Query.THUMB_URL))
                     .into(imageView);

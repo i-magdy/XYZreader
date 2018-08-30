@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SwipeRefreshLayout;
 
@@ -103,9 +104,15 @@ public class ArticleListActivity extends AppCompatActivity implements
             if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
                 mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
                 if (!mIsRefreshing && adapter != null) {
-                Snackbar.make(mRecyclerView, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                    mIsRefreshing = false;
+                    Snackbar snackbar =
+                            Snackbar.make(mRecyclerView, "",Snackbar.LENGTH_LONG)
+                                    .setText(+R.string.snackbar_text)
+                                    .setAction("Action", null);
+                    View view = snackbar.getView();
+                    view.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                    view.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.snackbar_color));
+                    snackbar.show();
+
                 }
                 updateRefreshingUI();
             }

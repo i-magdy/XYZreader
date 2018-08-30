@@ -9,5 +9,6 @@
     <string name="thumbnail_description">thumbnail</string>
 
     <string name="up">Up</string>
+    <string name="snackbar_text">Data is loaded</string>
 
 </resources>

@@ -3454,17 +3454,18 @@ public final class R {
     public static final int secondary_text_default_material_light=0x7f05005a;
     public static final int secondary_text_disabled_material_dark=0x7f05005b;
     public static final int secondary_text_disabled_material_light=0x7f05005c;
-    public static final int switch_thumb_disabled_material_dark=0x7f05005d;
-    public static final int switch_thumb_disabled_material_light=0x7f05005e;
-    public static final int switch_thumb_material_dark=0x7f05005f;
-    public static final int switch_thumb_material_light=0x7f050060;
-    public static final int switch_thumb_normal_material_dark=0x7f050061;
-    public static final int switch_thumb_normal_material_light=0x7f050062;
-    public static final int theme_accent=0x7f050063;
-    public static final int theme_primary=0x7f050064;
-    public static final int theme_primary_dark=0x7f050065;
-    public static final int tooltip_background_dark=0x7f050066;
-    public static final int tooltip_background_light=0x7f050067;
+    public static final int snackbar_color=0x7f05005d;
+    public static final int switch_thumb_disabled_material_dark=0x7f05005e;
+    public static final int switch_thumb_disabled_material_light=0x7f05005f;
+    public static final int switch_thumb_material_dark=0x7f050060;
+    public static final int switch_thumb_material_light=0x7f050061;
+    public static final int switch_thumb_normal_material_dark=0x7f050062;
+    public static final int switch_thumb_normal_material_light=0x7f050063;
+    public static final int theme_accent=0x7f050064;
+    public static final int theme_primary=0x7f050065;
+    public static final int theme_primary_dark=0x7f050066;
+    public static final int tooltip_background_dark=0x7f050067;
+    public static final int tooltip_background_light=0x7f050068;
   }
   public static final class dimen {
     public static final int abc_action_bar_content_inset_material=0x7f060000;
@@ -4103,10 +4104,11 @@ public final class R {
     public static final int path_password_eye_mask_visible=0x7f0e0027;
     public static final int path_password_strike_through=0x7f0e0028;
     public static final int search_menu_title=0x7f0e0029;
-    public static final int status_bar_notification_info_overflow=0x7f0e002a;
-    public static final int thumbnail_description=0x7f0e002b;
-    public static final int up=0x7f0e002c;
-    public static final int welcome_xyz_reader=0x7f0e002d;
+    public static final int snackbar_text=0x7f0e002a;
+    public static final int status_bar_notification_info_overflow=0x7f0e002b;
+    public static final int thumbnail_description=0x7f0e002c;
+    public static final int up=0x7f0e002d;
+    public static final int welcome_xyz_reader=0x7f0e002e;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0f0000;
