@@ -107,7 +107,15 @@
                 android:textColorLink="@color/theme_accent"
                 android:textSize="@dimen/detail_body_text_size" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
         </com.example.xyzreader.ui.MaxWidthLinearLayout>
+
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
