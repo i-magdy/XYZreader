@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Aug 31 14:37:29 EET 2018
+#Fri Aug 31 14:46:19 EET 2018
 1.base=C\:\\Users\\DELL\\AndroidStudioProjects\\xyz-reader-starter-code-master\\XYZReader\\build\\intermediates\\assets\\debug
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
